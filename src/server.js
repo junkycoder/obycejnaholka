@@ -1,9 +1,11 @@
 import express from 'express';
+import { createDocument } from './html';
 
 const app = express();
 
 app.get('*', (req, res) => {
-  res.status(200).send('Veronika Hallerová - obyčejná holka');
+  const html = createDocument('Veronika Hallerová - obyčejná holka');
+  res.status(200).send(html);
 });
 
 const port = process.env.PORT || 3000;
