@@ -3,6 +3,8 @@ import { createDocument } from './html';
 
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('*', (req, res) => {
   const html = createDocument('Veronika Hallerová - obyčejná holka');
   res.status(200).send(html);
