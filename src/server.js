@@ -1,4 +1,6 @@
-const app = require('express')();
+import express from 'express';
+
+const app = express();
 
 app.get('*', (req, res) => {
   res.status(200).send('Veronika Hallerová - obyčejná holka');
@@ -7,5 +9,5 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log('Running on port', port);
+  console.log(`Running in ${process.env.NODE_ENV || 'development'} on port ${port}`);
 });
