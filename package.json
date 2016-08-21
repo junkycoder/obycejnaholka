@@ -1,0 +1,24 @@
+{
+  "name": "obycejnaholka",
+  "version": "0.0.1",
+  "description": "",
+  "engines": {
+    "node": "v6.3.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junkycoder/obycejnaholka.git"
+  },
+  "author": "Dan Hromada <hromada.dan@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/junkycoder/obycejnaholka/issues"
+  },
+  "homepage": "https://github.com/junkycoder/obycejnaholka#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
