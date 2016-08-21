@@ -3,10 +3,12 @@ import { createDocument } from './html';
 
 const app = express();
 
-app.get('*', (req, res) => {
-  const html = createDocument('Veronika Hallerová - obyčejná holka');
-  res.status(200).send(html);
-});
+app.use('/static', express.static('./static'));
+
+// app.get('*', (req, res) => {
+//   const html = createDocument('Veronika Hallerová - obyčejná holka');
+//   res.status(200).send(html);
+// });
 
 const port = process.env.PORT || 3000;
 

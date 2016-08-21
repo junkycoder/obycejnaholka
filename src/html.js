@@ -7,6 +7,7 @@ export const createDocument = content => `
     </head>
     <body>
       <div id="app">${content}</div>
+      <script src="/static/client.js"></script>
     </body>
   </html>
 `;
