@@ -6,7 +6,7 @@
     "node": "v6.3.1"
   },
   "scripts": {
-    "start": "node start.js",
+    "start": "node scripts/start.js",
     "prebuild": "rm -rf build",
     "build": "babel src -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
