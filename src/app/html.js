@@ -7,7 +7,7 @@ export const createDocument = content => `
     </head>
     <body>
       <div id="app">${content}</div>
-      <script src="/client.js"></script>
+      <script src="/client/app.js"></script>
     </body>
   </html>
 `;

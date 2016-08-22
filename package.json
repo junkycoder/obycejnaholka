@@ -6,6 +6,7 @@
     "node": "v6.3.1"
   },
   "scripts": {
+    "preinstall": "rm -r ${PWD}/node_modules/config && ln -s ${PWD}/config ${PWD}/node_modules/config",
     "start": "node scripts/start.js",
     "prebuild": "rm -rf build",
     "build": "export NODE_ENV=production; babel src -d build && webpack -p --progress --config config/webpack.production.js",
