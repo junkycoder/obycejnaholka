@@ -3,8 +3,8 @@ const webpack = require('webpack');
 module.exports = {
 
   output: {
-    path: __dirname + '/../build/public/',
-    filename: 'client.js'
+    path: __dirname + '/../build/client/',
+    filename: 'app.js'
   },
 
   plugins: [
