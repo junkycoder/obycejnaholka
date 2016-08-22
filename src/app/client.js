@@ -1,1 +1,6 @@
-console.log(`${process.env.NODE_ENV} test`);
+import ReactDOM from 'react-dom';
+import React from 'react';
+
+import router from '../router';
+
+ReactDOM.render(router, document.getElementById('app'));
