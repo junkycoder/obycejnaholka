@@ -1,11 +1,9 @@
 const webpack = require('webpack');
 
-
 module.exports = {
-  entry: './src/public/client.js',
 
   output: {
-    path: __dirname + '/build/public/',
+    path: __dirname + '/../build/public/',
     filename: 'client.js'
   },
 
