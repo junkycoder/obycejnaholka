@@ -2,7 +2,7 @@
 switch (process.env.NODE_ENV) {
 
   case 'production':
-    require('./app/server').start(3000 || process.env.PORT);
+    require('./app/server').start(process.env.PORT || 3000);
     break;
 
   case 'development':
