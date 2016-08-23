@@ -1,10 +1,11 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
+const common = {
 
   output: {
-    path: __dirname + '/../build/client/',
+    path: __dirname + '/build/client/',
     filename: 'app.js'
   },
 
@@ -44,3 +45,37 @@ module.exports = {
     require('autoprefixer')
   ]
 }
+
+
+if (process.env.NODE_ENV === 'production') module.exports = merge(common, {
+
+  entry: __dirname + '/src/app/client.js',
+
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ]
+
+});
+
+if (process.env.NODE_ENV === 'development') module.exports = merge(common, {
+
+  devtool: 'eval',
+
+  entry: [
+      __dirname + '/src/app/client.js'
+  ],
+
+  output: {
+    publicPath: '/client/'
+  },
+
+  plugins: [
+    new webpack.NoErrorsPlugin()
+  ]
+
+});

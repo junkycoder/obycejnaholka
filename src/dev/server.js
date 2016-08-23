@@ -1,11 +1,12 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import webpackConfig from '../../webpack.config';
 import config from 'config/dev';
 
 export function run () {
 
-  const dev = new WebpackDevServer(webpack(config.webpack), {
-    publicPath: config.webpack.output.publicPath,
+  const dev = new WebpackDevServer(webpack(webpackConfig), {
+    publicPath: webpackConfig.output.publicPath,
     //hot: true,
     noInfo: true,
     //historyApiFallback: true
