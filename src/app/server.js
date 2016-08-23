@@ -2,23 +2,18 @@ import express from 'express';
 import config from 'config/app';
 
 import { createDocument } from './html';
-import devproxy from '../dev/proxy';
 import router from '../router/server';
 
-export function run () {
+export function run (devserver) {
+  const server = express();
 
-  const app = express();
+  // Serve bundled assets
+  if (devserver) server.all('/client/*', devserver.proxy());
+  else server.use('/client', express.static(__dirname + '/../client'));
 
-  if (app.get('env') === 'development') {
-    // Connect dev server
-    app.all('/client/*', devproxy());
-  } else {
-    // Serve compiled bundles
-    app.use('/client', express.static(__dirname + '/../client'));
-  }
 
-  // Server html document
-  app.get('*', (req, res) => router({ location: req.url }, (action, payload) => {
+  // Serve html document
+  server.get('*', (req, res) => router({ location: req.url }, (action, payload) => {
     switch (action) {
 
       case 'error':
@@ -47,7 +42,7 @@ export function run () {
   }));
 
   // Start server
-  app.listen(config.server.port, () => {
+  server.listen(config.server.port, () => {
     console.log(`Appserver running on http://localhost:${config.server.port}/`);
   });
 }

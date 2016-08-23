@@ -7,6 +7,5 @@ if (process.env.NODE_ENV === 'production') {
 else {
     require('babel-register')();
 
-    require('../src/dev/server').run();
-    require('../src/app/server').run();
+    require('../src/app/server').run(require('../dev/server'));
 }
