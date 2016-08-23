@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = {
 
   output: {
-    path: __dirname + '/build/client/',
+    path: __dirname + '/app/client/',
     filename: 'app.js'
   },
 
@@ -49,7 +49,7 @@ const common = {
 
 if (process.env.NODE_ENV === 'production') module.exports = merge(common, {
 
-  entry: __dirname + '/src/app/client.js',
+  entry: __dirname + '/src/client.js',
 
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
@@ -67,7 +67,7 @@ if (process.env.NODE_ENV === 'development') module.exports = merge(common, {
   devtool: 'eval',
 
   entry: [
-      __dirname + '/src/app/client.js'
+      __dirname + '/src/client.js'
   ],
 
   output: {

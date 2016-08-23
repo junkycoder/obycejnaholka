@@ -7,12 +7,11 @@
     "npm": "3.10.3"
   },
   "scripts": {
-    "preinstall": "rm -r ${PWD}/node_modules/config && ln -s ${PWD}/config ${PWD}/node_modules/config",
-    "start": "node scripts/start.js",
-    "prebuild": "rm -rf build",
-    "build": "export NODE_ENV=production; babel src -d build && webpack --progress",
+    "start": "node start.js",
+    "prebuild": "rm -rf app",
+    "build": "export NODE_ENV=production; babel src -d app && webpack --progress",
     "dev": "NODE_ENV=development npm start",
-    "prod": "export NODE_ENV=production; npm run build && npm start",
+    "prod": "npm run build && NODE_ENV=production npm start",
     "test": "ava --require babel-register --fail-fast --verbose"
   },
   "repository": {

@@ -1,16 +1,25 @@
 import express from 'express';
-import config from 'config/app';
+import { createProxyServer } from 'http-proxy';
 
 import { createDocument } from './html';
-import router from '../router/server';
+import router from './router/server';
 
-export function run (devserver) {
+function proxy ({ port }) {
+  const proxy = createProxyServer({
+    target: {
+      port
+    }
+  });
+
+  return (req, res) => proxy.web(req, res);
+}
+
+export function start (port, devserver) {
   const server = express();
 
   // Serve bundled assets
-  if (devserver) server.all('/client/*', devserver.proxy());
-  else server.use('/client', express.static(__dirname + '/../client'));
-
+  if (devserver) server.all('/client/*', proxy(devserver));
+  else server.use('/client', express.static(__dirname + '/client'));
 
   // Serve html document
   server.get('*', (req, res) => router({ location: req.url }, (action, payload) => {
@@ -42,7 +51,7 @@ export function run (devserver) {
   }));
 
   // Start server
-  server.listen(config.server.port, () => {
-    console.log(`Appserver running on http://localhost:${config.server.port}/`);
+  server.listen(port, () => {
+    console.log(`Appserver running on http://localhost:${port}/`);
   });
 }
