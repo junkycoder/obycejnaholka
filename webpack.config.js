@@ -5,8 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = {
 
   output: {
-    path: __dirname + '/app/client/',
-    filename: 'app.js'
+    path: __dirname + '/app/',
+    filename: 'client.js'
   },
 
   plugins: [
@@ -69,10 +69,6 @@ if (process.env.NODE_ENV === 'development') module.exports = merge(common, {
   entry: [
       __dirname + '/src/client.js'
   ],
-
-  output: {
-    publicPath: '/client/'
-  },
 
   plugins: [
     new webpack.NoErrorsPlugin()

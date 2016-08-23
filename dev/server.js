@@ -4,7 +4,7 @@ import config from '../webpack.config';
 
 export function start (port) {
   const server = new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
+    //publicPath: config.output.publicPath,
     //hot: true,
     noInfo: true
   });

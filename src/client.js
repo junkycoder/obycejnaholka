@@ -3,6 +3,6 @@ import React from 'react';
 
 import router from './router/client';
 
-import './base.css';
+import './styles.css';
 
 ReactDOM.render(router, document.getElementById('app'));

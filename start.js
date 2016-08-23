@@ -9,7 +9,7 @@ switch (process.env.NODE_ENV) {
     require('babel-register')();
 
     require('./dev/server').start(8080);
-    require('./src/server').start(3000, { port: 8080 });
+    require('./src/server').start(3000, 8080);
     break;
 
   default:
