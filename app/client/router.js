@@ -10,7 +10,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _routes = require('./routes');
+var _routes = require('../routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 

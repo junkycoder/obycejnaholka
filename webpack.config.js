@@ -49,7 +49,7 @@ const common = {
 
 if (process.env.NODE_ENV === 'production') module.exports = merge(common, {
 
-  entry: __dirname + '/src/client.js',
+  entry: __dirname + '/src/client',
 
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
@@ -67,7 +67,7 @@ if (process.env.NODE_ENV === 'development') module.exports = merge(common, {
   devtool: 'eval',
 
   entry: [
-      __dirname + '/src/client.js'
+      __dirname + '/src/client'
   ],
 
   plugins: [

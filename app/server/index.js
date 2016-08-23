@@ -13,9 +13,9 @@ var _bundle = require('./bundle');
 
 var _bundle2 = _interopRequireDefault(_bundle);
 
-var _html = require('./html');
+var _router = require('./router');
 
-var _html2 = _interopRequireDefault(_html);
+var _router2 = _interopRequireDefault(_router);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,7 +24,7 @@ function start(port, devport) {
 
   server.get('/client.js', (0, _bundle2.default)(devport));
   server.get('/styles.css', (0, _bundle2.default)(devport));
-  server.get('*', (0, _html2.default)());
+  server.get('*', (0, _router2.default)());
 
   server.listen(port, function () {
     console.log('Appserver running on http://localhost:' + port + '/');
