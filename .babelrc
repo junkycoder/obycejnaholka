@@ -1,9 +1,18 @@
+// IMPORTANT: Used only for server-side build.
+// Webpack uses own babel-loader configuration
+// (bacause of the css-module-transform)
 {
   "presets": [
     "es2015",
     "react"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime", [
+
+      "css-modules-transform", {
+        // This format must equal to format specified in webpack config
+        "generateScopedName": "[name]_[local]__[hash:base64:5]"
+      }
+    ]
   ]
 }

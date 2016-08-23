@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
@@ -12,18 +13,34 @@ module.exports = {
       'process.env': {
         'NODE_ENV': `"${process.env.NODE_ENV}"`
       }
-    })
+    }),
+    new ExtractTextPlugin('styles.css', { allChunks: true }),
   ],
 
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      loader: 'babel',
+      query: {
+        presets: ['es2015', 'react'],
+        plugins: ['transform-runtime'],
+        babelrc: false
+      }
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+        'style',
+        `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`
+      )
     }]
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
-  }
+    extensions: ['', '.js', '.jsx', '.css']
+  },
+
+  postcss: [
+    require('autoprefixer')
+  ]
 }

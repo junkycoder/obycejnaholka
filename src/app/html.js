@@ -4,6 +4,7 @@ export const createDocument = content => `
   <html>
     <head>
       <title></title>
+      <link rel="stylesheet" href="/client/styles.css" charset="utf-8">
     </head>
     <body>
       <div id="app">${content}</div>
