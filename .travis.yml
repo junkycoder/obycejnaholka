@@ -1,4 +1,15 @@
 language: node_js
-node_js:
-  - "6"
 
+node_js:
+- '6'
+
+before_script:
+- npm run build
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: CrcQRIhRWLFmelYe9IuCBKsl/fkSet9xvoC3Jj45nbVhfYc5Lhr5NJh4KtbjJhxh/egSp44FQe85Rj6izTK/2LBNrDFuwnEkAA/fyIS9g5DDPESe1ZdrA4jJhht2D6u2HDaGaYWa0g7k2s0sJKDfWVIQ6euTYwCPriT7dpamMp4xomRpBQLWTmd9R2YU6yVTMH0h/SRn8bp4UBOYkshzbMoqbhqbtrANgQfKfWsBKqN1GJHtdWs6LzSL0ItHIK0YIl5O3rM9C/HbM3v080wVtbTFF86owZNtVtX5eYpigSUfsg7POnxwCJV8sqMhfZn6ZwRE52YYB47HM5JjyU6Whbgp40706so+y5/4tl1Rw46PDcyaYIana1WI/XucObjT3k6zcbvnVa3AWR9EEsn91Yitg1JTQfrGNkjEKNyJ62DgihhJZn4cLAe2zipAyllUo4IYh03u2VLysTRe8sFc6m4dGDVMEI12f5RuNPuqOZadHqyGYOm+Xv7SjqbR0o++ZrqDmanbs9V8P96H0nyJq5TRMcfbFja0ZaulixOSIp5SGM3dvnxfXRf/O7ONMEgOY2Bkh3tkQmrWmaRBszZdb+nENbNARchUKTQhpAiKFsLALT1tmqUWaGqdKAcNFschABho7Lp3OL2KzNSHQJIgg0j8tKENKayxxuznLm67L+g=
+  app: obycejnaholka
+  on:
+    repo: junkycoder/obycejnaholka
