@@ -13,7 +13,7 @@
     "dev": "NODE_ENV=development npm start",
     "prod": "npm run build && NODE_ENV=production npm start",
     "test": "ava --require babel-register --fail-fast --verbose",
-    "postinstall": "npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
