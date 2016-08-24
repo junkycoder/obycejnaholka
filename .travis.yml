@@ -13,3 +13,4 @@ deploy:
   app: obycejnaholka
   on:
     repo: junkycoder/obycejnaholka
+  skip_cleanup: true
